@@ -17,6 +17,16 @@ npm install ./skeleton-modern
 npm install skeleton-modern
 ```
 
+## Publishing to GitHub Packages
+
+This repo includes a GitHub Action at
+`.github/workflows/publish-github-packages.yml` that installs dependencies,
+builds (if a `build` script exists), and publishes on `v*` tags (or manual
+dispatch).
+
+For GitHub's npm registry, package names must be scoped (for example
+`@dvoina/skeleton-modern`) and consumers install from `npm.pkg.github.com`.
+
 ## Usage (SvelteKit)
 
 **1. Load the stylesheet once**, in `src/app.html` (before your app's own CSS)
