@@ -6,6 +6,8 @@ tokens instead of hardcoded values, and real dark mode via
 `prefers-color-scheme` plus a manual toggle. Same restraint, none of the 2014
 plumbing.
 
+Original Skeleton was created by [Dave Gamache](https://github.com/dhg/Skeleton).
+
 ## Install
 
 Published via GitHub Container Registry (GHCR):
