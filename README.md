@@ -89,3 +89,12 @@ The stylesheet has no Svelte dependency — `import '@dvoina/skeleton-ng/styles.
 works in any framework, or link `src/styles.css` directly in a `<head>`. Only
 `ThemeToggle` requires Svelte; recreate its ~15 lines of logic in vanilla JS
 or your framework of choice if you're not on Svelte.
+
+## Demo: getskeleton.com rewrite
+
+A static demo rewrite of the original `getskeleton.com` landing page lives at:
+
+- `demo/getskeleton-modern.html`
+
+Open it directly in a browser to preview the framework primitives (grid, type,
+buttons, forms, tokens, and theme toggle) in one page.
