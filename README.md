@@ -11,7 +11,11 @@ plumbing.
 Published via GitHub Container Registry (GHCR):
 
 ```bash
-ghcr.io/dvoina/skeleton-ng
+$ npm install @dvoina/skeleton-ng@0.1.1
+```
+or via 1package.json
+```
+"@dvoina/skeleton-ng": "0.1.1",
 ```
 
 For local development, you can still copy this folder into your project
