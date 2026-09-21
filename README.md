@@ -63,15 +63,10 @@ Also add the fonts it expects, in `src/app.html`:
 <theme-toggle></theme-toggle>
 ```
 
-**3. Use the classes** in your markup — `.grid` / `.col-4` / `.col-6` /
-`.col-8` / `.col-12` for layout, `.button` / `.button-primary` /
+**3. Use the classes** in your markup — `.grid` plus `.col-1`…`.col-12`
+for layout, `.button` / `.button-primary` /
 `.button-ghost` for actions, plain `<input>` / `<select>` / `<textarea>` are
 already styled.
-
-Skeleton v2 compatibility classes are also included: `.container`,
-`.column`/`.columns`, `.one`…`.twelve`, `.one-third`, `.two-thirds`,
-`.one-half`, `offset-by-*`, plus utilities like `.u-full-width`,
-`.u-max-full-width`, `.u-pull-right`, `.u-pull-left`, and `.u-cf`.
 
 ```svelte
 <div class="grid">
