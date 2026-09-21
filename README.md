@@ -8,24 +8,21 @@ plumbing.
 
 ## Install
 
-Not on the npm registry yet — for now, copy this folder into your project
-(e.g. `src/lib/skeleton-ng`) or install it as a local/git dependency:
+Published via GitHub Container Registry (GHCR):
 
 ```bash
-npm install ./skeleton-ng
-# or, once published:
-npm install @dvoina/skeleton-ng
+ghcr.io/dvoina/skeleton-ng
 ```
 
-## Publishing to GitHub Packages
+For local development, you can still copy this folder into your project
+(e.g. `src/lib/skeleton-ng`) or install it as a local/git dependency.
+
+## Publishing
 
 This repo includes a GitHub Action at
 `.github/workflows/publish-github-packages.yml` that installs dependencies,
 lints CSS, performs a package build check, and runs on pushes/PRs. Publishing
-to GitHub Packages happens only on `v*` tags (or manual dispatch).
-
-For GitHub's npm registry, package names must be scoped (for example
-`@dvoina/skeleton-ng`) and consumers install from `npm.pkg.github.com`.
+to GHCR happens only on `v*` tags (or manual dispatch).
 
 ## Usage (SvelteKit and plain HTML)
 
@@ -102,8 +99,8 @@ The theme toggle is also framework-agnostic:
 Two demo versions of the original `getskeleton.com` landing page rewrite live
 in this repo:
 
-- `demo/getskeleton-modern.html` (static HTML)
-- `demo/getskeleton-modern.svelte` (Svelte, with componentized popover logic in
+- `demo/*.html` (static HTML demo)
+- `demo/*.svelte` (Svelte demo, with componentized popover logic in
   `demo/components/NavPopover.svelte`)
 
 Open the HTML file directly in a browser, or copy the Svelte file into your app
