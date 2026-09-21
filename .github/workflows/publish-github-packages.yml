@@ -29,6 +29,12 @@ jobs:
         with:
           node-version: 24
 
+      - name: Verify Node.js version
+        run: |
+          node -v
+          npm -v
+          test "$(node -p 'process.versions.node.split(`.`)[0]')" = "24"
+
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
@@ -59,6 +65,12 @@ jobs:
         with:
           node-version: 24
 
+      - name: Verify Node.js version
+        run: |
+          node -v
+          npm -v
+          test "$(node -p 'process.versions.node.split(`.`)[0]')" = "24"
+
       - name: Configure npm for GitHub Packages
         run: |
           echo "@dvoina:registry=https://npm.pkg.github.com" >> ~/.npmrc
@@ -82,6 +94,7 @@ jobs:
           else
             VERSION="${GITHUB_REF_NAME#v}"
           fi
+          VERSION="${VERSION#v}"
           if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]]; then
             echo "Invalid semver version: '$VERSION'"
             exit 1

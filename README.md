@@ -26,7 +26,7 @@ to GHCR happens only on `v*` tags (or manual dispatch).
 
 For tag releases, the workflow uses the tag version (for example `v0.1.1` →
 `0.1.1`) for `package.json` before publishing. For manual dispatch, provide a
-semver `version` input.
+semver `version` input (`0.1.1` or `v0.1.1` are both accepted).
 
 ## Usage (SvelteKit and plain HTML)
 
