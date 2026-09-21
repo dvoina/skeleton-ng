@@ -1,5 +1,5 @@
 {
-  "name": "skeleton-modern",
+  "name": "@dvoina/skeleton-ng",
   "version": "0.1.0",
   "description": "A 2026 rebuild of the Skeleton CSS framework: CSS Grid, custom-property tokens, fluid type, and dark mode. Ships a stylesheet plus a Svelte theme-toggle component.",
   "type": "module",
@@ -11,6 +11,9 @@
     "./ThemeToggle.svelte": "./src/ThemeToggle.svelte"
   },
   "files": ["src"],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "peerDependencies": {
     "svelte": "^4.0.0 || ^5.0.0"
   },

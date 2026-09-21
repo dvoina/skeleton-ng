@@ -14,18 +14,18 @@ Not on the npm registry yet — for now, copy this folder into your project
 ```bash
 npm install ./skeleton-modern
 # or, once published:
-npm install skeleton-modern
+npm install @dvoina/skeleton-ng
 ```
 
 ## Publishing to GitHub Packages
 
 This repo includes a GitHub Action at
 `.github/workflows/publish-github-packages.yml` that installs dependencies,
-builds (if a `build` script exists), and publishes on `v*` tags (or manual
-dispatch).
+lints CSS, performs a package build check, and runs on pushes/PRs. Publishing
+to GitHub Packages happens only on `v*` tags (or manual dispatch).
 
 For GitHub's npm registry, package names must be scoped (for example
-`@dvoina/skeleton-modern`) and consumers install from `npm.pkg.github.com`.
+`@dvoina/skeleton-ng`) and consumers install from `npm.pkg.github.com`.
 
 ## Usage (SvelteKit)
 
@@ -34,7 +34,7 @@ or by importing it in `src/routes/+layout.svelte`:
 
 ```svelte
 <script>
-  import 'skeleton-modern/styles.css';
+  import '@dvoina/skeleton-ng/styles.css';
 </script>
 ```
 
@@ -50,7 +50,7 @@ Also add the fonts it expects, in `src/app.html`:
 
 ```svelte
 <script>
-  import { ThemeToggle } from 'skeleton-modern';
+  import { ThemeToggle } from '@dvoina/skeleton-ng';
 </script>
 
 <ThemeToggle />
@@ -85,7 +85,7 @@ in your own CSS to retheme:
 
 ## Plain HTML / non-Svelte use
 
-The stylesheet has no Svelte dependency — `import 'skeleton-modern/styles.css'`
+The stylesheet has no Svelte dependency — `import '@dvoina/skeleton-ng/styles.css'`
 works in any framework, or link `src/styles.css` directly in a `<head>`. Only
 `ThemeToggle` requires Svelte; recreate its ~15 lines of logic in vanilla JS
 or your framework of choice if you're not on Svelte.

@@ -1,13 +1,46 @@
-name: Build and publish package
+name: CI and publish package
 
 on:
   workflow_dispatch:
+  pull_request:
   push:
+    branches:
+      - main
+      - master
     tags:
       - "v*"
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Lint CSS
+        run: npx --yes stylelint "src/**/*.css" --config .stylelintrc.json
+
+      - name: Build package
+        run: npm pack --dry-run
+
   publish:
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')
+    needs: ci
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -19,9 +52,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          registry-url: https://npm.pkg.github.com
-          cache: npm
+          node-version: 24
+
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "@dvoina:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: |
@@ -31,10 +69,5 @@ jobs:
             npm install
           fi
 
-      - name: Build (if present)
-        run: npm run build --if-present
-
       - name: Publish to GitHub Packages
-        run: npm publish --registry https://npm.pkg.github.com
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish
