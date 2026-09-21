@@ -1,5 +1,5 @@
 <script>
-  import { ThemeToggle } from '../src/index.js';
+  import '../src/theme-toggle.js';
   import NavPopover from './components/NavPopover.svelte';
 
   const codeItems = [
@@ -37,7 +37,7 @@
 </svelte:head>
 
 <main class="wrap">
-  <ThemeToggle />
+  <theme-toggle></theme-toggle>
   <section class="header" id="intro">
     <p class="eyebrow kicker">Skeleton NG • 2026 demo</p>
     <h1>Rewriting getskeleton.com with a modern Skeleton</h1>

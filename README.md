@@ -27,7 +27,7 @@ to GitHub Packages happens only on `v*` tags (or manual dispatch).
 For GitHub's npm registry, package names must be scoped (for example
 `@dvoina/skeleton-ng`) and consumers install from `npm.pkg.github.com`.
 
-## Usage (SvelteKit)
+## Usage (SvelteKit and plain HTML)
 
 **1. Load the stylesheet once**, in `src/app.html` (before your app's own CSS)
 or by importing it in `src/routes/+layout.svelte`:
@@ -46,14 +46,14 @@ Also add the fonts it expects, in `src/app.html`:
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 ```
 
-**2. Drop in the theme toggle** anywhere in your layout:
+**2. Register and use the theme toggle web component**:
 
 ```svelte
 <script>
-  import { ThemeToggle } from '@dvoina/skeleton-ng';
+  import '@dvoina/skeleton-ng/theme-toggle.js';
 </script>
 
-<ThemeToggle />
+<theme-toggle></theme-toggle>
 ```
 
 **3. Use the classes** in your markup — `.grid` / `.col-4` / `.col-6` /
@@ -86,9 +86,16 @@ in your own CSS to retheme:
 ## Plain HTML / non-Svelte use
 
 The stylesheet has no Svelte dependency — `import '@dvoina/skeleton-ng/styles.css'`
-works in any framework, or link `src/styles.css` directly in a `<head>`. Only
-`ThemeToggle` requires Svelte; recreate its ~15 lines of logic in vanilla JS
-or your framework of choice if you're not on Svelte.
+works in any framework, or link `src/styles.css` directly in a `<head>`.
+The theme toggle is also framework-agnostic:
+
+```html
+<script type="module">
+  import '@dvoina/skeleton-ng/theme-toggle.js';
+</script>
+
+<theme-toggle></theme-toggle>
+```
 
 ## Demo: getskeleton.com rewrite
 

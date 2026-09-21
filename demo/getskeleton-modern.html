@@ -184,7 +184,7 @@
   </head>
   <body>
     <main class="wrap">
-      <button class="toggle" aria-label="Toggle color theme">☾ theme</button>
+      <theme-toggle></theme-toggle>
       <section class="header" id="intro">
 
       <p class="eyebrow kicker">Skeleton NG • 2026 demo</p>
@@ -450,25 +450,9 @@
       </section>
     </main>
 
+    <script type="module" src="../src/theme-toggle.js"></script>
     <script>
-      const root = document.documentElement;
-      const button = document.querySelector('.toggle');
       const popoverTriggers = document.querySelectorAll('[data-popover]');
-
-      try {
-        const saved = localStorage.getItem('theme') ?? '';
-        if (saved) root.setAttribute('data-theme', saved);
-      } catch {}
-
-      button?.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') ?? '';
-        const next = current === 'dark' ? 'light' : current === 'light' ? '' : 'dark';
-        if (next) root.setAttribute('data-theme', next);
-        else root.removeAttribute('data-theme');
-        try {
-          localStorage.setItem('theme', next);
-        } catch {}
-      });
 
       function closePopovers(exceptId = '') {
         document.querySelectorAll('.popover.open').forEach((el) => {

@@ -1,4 +1,4 @@
-export { default as ThemeToggle } from './ThemeToggle.svelte';
+export { ThemeToggleElement, defineThemeToggle } from './theme-toggle.js';
 
 // Convenience re-export so consumers can do:
 //   import '@dvoina/skeleton-ng/styles.css'
