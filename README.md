@@ -24,6 +24,10 @@ This repo includes a GitHub Action at
 lints CSS, performs a package build check, and runs on pushes/PRs. Publishing
 to GHCR happens only on `v*` tags (or manual dispatch).
 
+For tag releases, the workflow uses the tag version (for example `v0.1.1` →
+`0.1.1`) for `package.json` before publishing. For manual dispatch, provide a
+semver `version` input.
+
 ## Usage (SvelteKit and plain HTML)
 
 **1. Load the stylesheet once**, in `src/app.html` (before your app's own CSS)
