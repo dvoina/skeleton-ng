@@ -66,6 +66,11 @@ Also add the fonts it expects, in `src/app.html`:
 `.button-ghost` for actions, plain `<input>` / `<select>` / `<textarea>` are
 already styled.
 
+Skeleton v2 compatibility classes are also included: `.container`,
+`.column`/`.columns`, `.one`…`.twelve`, `.one-third`, `.two-thirds`,
+`.one-half`, `offset-by-*`, plus utilities like `.u-full-width`,
+`.u-max-full-width`, `.u-pull-right`, `.u-pull-left`, and `.u-cf`.
+
 ```svelte
 <div class="grid">
   <div class="col-8">Main content</div>
