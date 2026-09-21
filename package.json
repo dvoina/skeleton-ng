@@ -1,0 +1,19 @@
+{
+  "name": "skeleton-modern",
+  "version": "0.1.0",
+  "description": "A 2026 rebuild of the Skeleton CSS framework: CSS Grid, custom-property tokens, fluid type, and dark mode. Ships a stylesheet plus a Svelte theme-toggle component.",
+  "type": "module",
+  "main": "src/index.js",
+  "svelte": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./styles.css": "./src/styles.css",
+    "./ThemeToggle.svelte": "./src/ThemeToggle.svelte"
+  },
+  "files": ["src"],
+  "peerDependencies": {
+    "svelte": "^4.0.0 || ^5.0.0"
+  },
+  "keywords": ["css", "skeleton", "css-framework", "svelte", "dark-mode"],
+  "license": "MIT"
+}
