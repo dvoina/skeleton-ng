@@ -1,4 +1,4 @@
-# skeleton-modern
+# skeleton-ng
 
 A 2026 rebuild of the [Skeleton](http://getskeleton.com) CSS framework: CSS Grid
 instead of floats, `clamp()` instead of fixed breakpoints, custom-property
@@ -9,10 +9,10 @@ plumbing.
 ## Install
 
 Not on the npm registry yet — for now, copy this folder into your project
-(e.g. `src/lib/skeleton-modern`) or install it as a local/git dependency:
+(e.g. `src/lib/skeleton-ng`) or install it as a local/git dependency:
 
 ```bash
-npm install ./skeleton-modern
+npm install ./skeleton-ng
 # or, once published:
 npm install @dvoina/skeleton-ng
 ```
@@ -92,9 +92,13 @@ or your framework of choice if you're not on Svelte.
 
 ## Demo: getskeleton.com rewrite
 
-A static demo rewrite of the original `getskeleton.com` landing page lives at:
+Two demo versions of the original `getskeleton.com` landing page rewrite live
+in this repo:
 
-- `demo/getskeleton-modern.html`
+- `demo/getskeleton-modern.html` (static HTML)
+- `demo/getskeleton-modern.svelte` (Svelte, with componentized popover logic in
+  `demo/components/NavPopover.svelte`)
 
-Open it directly in a browser to preview the framework primitives (grid, type,
-buttons, forms, tokens, and theme toggle) in one page.
+Open the HTML file directly in a browser, or copy the Svelte file into your app
+to preview the framework primitives (grid, type, buttons, forms, tokens, and
+theme toggle) in one page.
